@@ -1,0 +1,163 @@
+{% extends "holdingcore_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>From Blog</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Blog</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Our Blog</p>
+            <h2>Explore our latest updates and community impact.</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'holdingcore_app/img/blog-1.png' %}" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a>The Power of Giving</a></h3>
+                        <p>
+                            Even small donations make a big impact in uplifting underserved communities and creating
+                            lasting change.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-comments"></i><a
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank">Join the Conversation on Twitter</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'holdingcore_app/img/blog-2.png' %}" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a>Supporting Education</a></h3>
+                        <p>
+                            We provide school supplies and scholarships to empower children and create brighter
+                            futures.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-comments"></i><a
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank">Join the Conversation on Twitter</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'holdingcore_app/img/blog-3.png' %}" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a>Youth Empowerment</a></h3>
+                        <p>
+                            Our programs equip youth with tools, mentorship, and opportunities to build a better
+                            tomorrow.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-comments"></i><a
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank">Join the Conversation on Twitter</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'holdingcore_app/img/blog-1.png' %}" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a> Fighting Hunger Together</a></h3>
+                        <p>
+                            Our food distribution programs ensure that no one goes hungry, bringing essential
+                            nutrition to those in need.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-comments"></i><a
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank">Join the Conversation on Twitter</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'holdingcore_app/img/blog-2.png' %}" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a>Organizing Outreach Programs</a></h3>
+                        <p>
+                            LLearn how we plan and execute successful outreach programs to support communities in
+                            need.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-comments"></i><a
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank">Join the Conversation on Twitter</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{% static 'holdingcore_app/img/blog-3.png' %}" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a>Volunteer Spotlight</a></h3>
+                        <p>
+                            Meet the dedicated volunteers who are making a difference through their time and
+                            efforts.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-comments"></i><a
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank">Join the Conversation on Twitter</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+
+
+
+{% endblock %}

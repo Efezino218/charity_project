@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Holdingcore</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'holdingcore_app/img/favicon.png' %}" rel="icon">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'holdingcore_app/lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'holdingcore_app/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'holdingcore_app/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Bootstrap CSS (make sure to include this) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'holdingcore_app/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'holdingcore_app/css/home.css' %}" rel="stylesheet">
+
+    <!-- Add SweetAlert2 to Your Project: Include SweetAlert2 from a CDN in your HTML: -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Email.Js  -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- contact -->
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "kAQC1AZhMh3jWxeHB",
+            });
+        })();
+    </script>
+    <!-- Email.js -->
+
+    <!-- Email.Js  -->
+    <!-- Donate -->
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "EBMasy5mVygUIMnhu",
+            });
+        })();
+    </script>
+    <!-- Email.js -->
+</head>
+
+<body>
+    <!-- Your body content here -->
+
+
+   <!-- Nav Bar Start -->
+<div class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a href="{% url 'home' %}" class="navbar-brand">
+            <img src="{% static 'holdingcore_app/img/LOGOS (2).png' %}" width="70px" alt="">
+            <span>Holdingcore <br> NGO Foundation</span>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">
+                    Home
+                </a>
+                <a href="{% url 'about' %}" class="nav-item nav-link {% if request.path == '/about/' %}active{% endif %}">
+                    About
+                </a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle {% if request.path == '/programs/' or request.path == '/volunteer/' or request.path == '/blog/' or request.path == '/event_gallery/' or request.path == '/guidelines/' %}active{% endif %}" data-toggle="dropdown">Explore</a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'programs' %}" class="dropdown-item {% if request.path == '/programs/' %}active{% endif %}">
+                            Our Programs
+                        </a>
+                        <a href="{% url 'volunteer' %}" class="dropdown-item {% if request.path == '/volunteer/' %}active{% endif %}">
+                            Become A Volunteer
+                        </a>
+                        <a href="{% url 'blog' %}" class="dropdown-item {% if request.path == '/blog/' %}active{% endif %}">
+                            Blog
+                        </a>
+                        <a href="{% url 'event_gallery' %}" class="dropdown-item {% if request.path == '/event_gallery/' %}active{% endif %}">
+                            Event Gallery
+                        </a>
+                        <a href="{% url 'guidelines' %}" class="dropdown-item {% if request.path == '/guidelines/' %}active{% endif %}">
+                            Guidelines
+                        </a>
+                    </div>
+                </div>
+                <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">
+                    Contact
+                </a>
+             
+                <a href="{% url 'donate' %}" class="btn btn-primary ml-lg-3 donate-btn">
+                    Donate <i class="fas fa-hand-holding-heart"></i>
+                </a>
+            </div>
+            <form class="search-bar ml-lg-3 mt-3 mt-lg-0" method="get" action="">
+                <div class="input-group">
+                    <input type="search" class="form-control" name="q" placeholder="Search for causes, events..."
+                        aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Nav Bar End -->
+
+
+
+    <div class="body">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+
+
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+    <!-- Pre Loader -->
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
+
+
+
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2><img src="{% static 'holdingcore_app/img/LOGOS.png' %}" width="60px" alt=""> Holdingcore</h2>
+                        <p>Empowering underserved communities through education, financial support, and essential
+                            resources to foster growth and resilience across Nigeria.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h2>Quick Links</h2>
+                        <a href="#">Home</a>
+                        <a href="#">About Us</a>
+                        <a href="#">Our Causes</a>
+                        <a href="#">Become a Volunteer</a>
+                        <a href="#">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-contact">
+                        <h2>Our Head Office</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Lagos State, Nigeria</p>
+                        <p><i class="fa fa-phone-alt"></i>+234 702 5755 370</p>
+                        <p><i class="fa fa-envelope"></i>info@holdingcorefoundation.org <span
+                                style="display: block; text-align: center;">OR</span>
+                            holdingcorengo@gmail.com
+                        </p>
+                        <div class="footer-social">
+                            <a class="btn btn-custom"
+                                href="https://x.com/Holdingcorengo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a class="btn btn-custom" href="https://web.facebook.com/Holdingcorengo" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-custom" href="https://www.youtube.com/@Holdingcorengofoundation"
+                                target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-custom" href="https://www.instagram.com/holdingcorengo/"
+                                target="_blank"><i class="fab fa-instagram"></i></a>
+                            <!-- <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6">
+                    <div class="footer-newsletter">
+                        <h2>Newsletter</h2>
+                        <form>
+                            <input class="form-control" placeholder="Email goes here">
+                            <button class="btn btn-custom">Submit</button>
+                            <label>Don't worry, we don't spam!</label>
+                        </form>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="#">Holdingcore NGO Foundation</a>, All Right Reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Designed By <a href="https://www.cyjustdeals.com/" target="_blank">Cyjust Deals</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+    <!-- Contact Form  Javascript Function -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            initializeContactForm();
+        });
+    </script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'holdingcore_app/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'holdingcore_app/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'holdingcore_app/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'holdingcore_app/lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'holdingcore_app/lib/parallax/parallax.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'holdingcore_app/mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'holdingcore_app/mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'holdingcore_app/js/main.js' %}"></script>
+
+    <!-- Bootstrap JS and Popper.js (required for modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% comment %}
+    {% endcomment %}
+
+</body>
+
+</html>

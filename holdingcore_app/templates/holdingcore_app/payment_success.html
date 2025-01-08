@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Payment Successful</title>
+</head>
+
+<body>
+    <h1>Thank You for Your Donation!</h1>
+    <p>Transaction Reference: {{ transaction.tx_ref }}</p>
+    <p>Amount: {{ transaction.amount }} {{ transaction.currency }}</p>
+    <p>Status: {{ transaction.status }}</p>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+{% extends "holdingcore_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 text-center text-lg-left">
+                    <h1 class="display-4 fw-bold mb-4" style="color: #fff;">Our Event Journey</h1>
+                    <p class="lead mb-4">Explore our impactful events and initiatives that drive positive change.</p>
+                    <a href="{% url 'donate' %}" class="btn btn-primary btn-lg">Make a Donate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<style>
+    .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("{% static 'holdingcore_app/img/gallery.png' %}")no-repeat center center; background-size: cover;
+        background-attachment: fixed;
+        /* Fixed background on scroll */
+        background-position: center bottom;
+        /* Keep image aligned from the bottom */
+        height: 75vh;
+        /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+        overflow: hidden;
+    }
+</style>
+
+
+    <!-- Full-width Video Section -->
+    <div class="container">
+        <div class="full-width-video">
+            <iframe src="https://www.youtube.com/embed/734G9KrQNkU" allowfullscreen></iframe>
+            <div class="video-description">Foundation Overview: Discover the foundation's inspiring journey and goals.
+            </div>
+        </div>
+    </div>
+
+    <!-- Row Videos Section -->
+    <div class="container">
+        <div class="row-videos">
+            <div class="thumbnail-video">
+                <iframe src="https://www.youtube.com/embed/c1jzgzp-YGI" allowfullscreen></iframe>
+                <div class="video-description">Business Finance Support (February): Highlights from February.</div>
+            </div>
+            <div class="thumbnail-video">
+                <iframe src="https://www.youtube.com/embed/U-3DgNafqz8" allowfullscreen></iframe>
+                <div class="video-description">Business Finance Support (March): Highlights from March.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-width Video Section -->
+    <div class="container">
+        <div class="full-width-video">
+            <iframe src="https://www.youtube.com/embed/_H5o2en8gkk" allowfullscreen></iframe>
+            <div class="video-description">Primary School Tools Empowerment: Empowering schools with essential
+                resources.</div>
+        </div>
+    </div>
+
+    <!-- Row Videos Section -->
+    <div class="container">
+        <div class="row-videos">
+            <div class="thumbnail-video">
+                <iframe src="https://www.youtube.com/embed/V0TSWhcHiBg" allowfullscreen></iframe>
+                <div class="video-description">Car Empowerment Program: Witness the impact of our car empowerment.</div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

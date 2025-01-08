@@ -1,0 +1,22 @@
+# Ignore the virtual environment folder
+env/
+
+# Ignore Python cache Folder
+__pycache__/
+
+# Ignore log files
+*.log
+
+# Ignore SQLite database
+db.sqlite3
+
+
+# Ignore all text files
+*.txt
+
+# Exclude requirements.txt from being ignored
+!requirements.txt
+
+
+# Ignore environment file
+.env

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Payment Error</title>
+    <style>
+        .error-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .error-message {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+
+        .technical-details {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <h1>Payment Error</h1>
+        <div class="error-message">
+            {{ error_message }}
+        </div>
+
+        {% if technical_details %}
+        <div class="technical-details">
+            <h3>Technical Details (Development Only):</h3>
+            {{ technical_details }}
+        </div>
+        {% endif %}
+
+        <a href="{% url 'initialize_payment' %}" class="back-button">Go back to the donation form</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,235 @@
+{% extends "holdingcore_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+
+    <!-- Page Header Start -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Volunteer</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Home</a>
+                    <a href="">Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+
+    <!-- Volunteer Section Start -->
+    <div class="volunteer" data-parallax="scroll" data-image-src="{% static 'holdingcore_app/img/vol2.png' %}" style="position: relative;">
+        <div class="overlay"
+            style="background: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100vh;">
+        </div>
+        <div class="container text-white position-relative" style="z-index: 2;">
+            <div class="row align-items-center py-5">
+                <!-- Left Column: Content -->
+                <div class="col-lg-7">
+                    <div class="volunteer-content">
+                        <h2 class="display-5 fw-bold mb-4">VOLUNTEERS</h2>
+                        <h4 class="mb-4">Join Us in Making a Difference</h4>
+                        <p>Do you have a heart for service and a passion for making a difference? Become a part of the
+                            Holdingcore Empowerment Foundation family as a volunteer! Your time, skills, and compassion
+                            can change lives and uplift communities.</p>
+                        <p>At Holdingcore Empowerment Foundation, we believe that the most powerful force for change
+                            lies in the hearts of those willing to give their time, energy, and love to uplift others.
+                            Volunteers are the lifeblood of our mission, and with your help, we can reach even more
+                            lives and create lasting impact in underserved communities.
+                        </p>
+                        <h5 class="mt-4">As a volunteer, you’ll have the opportunity to:</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fa fa-check-circle text-warning me-2"></i> Contribute to impactful programs
+                                that transform lives.
+                            </li>
+                            <li class="mb-2">
+                                <i class="fa fa-users text-primary me-2"></i> Work alongside a team of like-minded
+                                individuals dedicated to positive change.
+                            </li>
+                            <li>
+                                <i class="fa fa-heart text-danger me-2"></i> Be a beacon of hope for those who need it
+                                most.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Right Column: Form -->
+                <div class="col-lg-5">
+                    <div class="volunteer-form">
+                        <form id="volunteerForm">
+                            <!-- Name Field -->
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="name" placeholder="Name"
+                                    required="required" />
+                            </div>
+                            <!-- Email Field -->
+                            <div class="control-group">
+                                <input type="email" class="form-control" id="email" placeholder="Email"
+                                    required="required" />
+                            </div>
+                            <!-- Phone Number Field -->
+                            <div class="control-group">
+                                <input type="tel" class="form-control" id="phone" placeholder="Phone Number"
+                                    required="required" />
+                            </div>
+                            <!-- Location Field -->
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="location" placeholder="Location" />
+                            </div>
+                            <!-- Gender Field -->
+                            <div class="control-group">
+                                <select class="form-control" id="gender" required>
+                                    <option value="" disabled selected>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <!-- Availability Field -->
+                            <div class="control-group">
+                                <select class="form-control" id="availability" required>
+                                    <option value="" disabled selected>Availability</option>
+                                    <option value="weekdays">Weekdays</option>
+                                    <option value="weekends">Weekends</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            <!-- Submit Button -->
+                            <div>
+                                <button class="btn btn-custom" type="submit" id="submitButton">Become a
+                                    Volunteer</button>
+                            </div>
+                        </form>
+                        <!-- Loading Animation -->
+                        <div id="loading" style="display:none;">
+                            <img src="{% static 'holdingcore_app/img/loading.gif' %}" alt="Loading..." />
+                            <!-- You can replace with your own loading gif -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Volunteer Section End -->
+
+
+    <!-- Contact Us Section -->
+    <div class="contact-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">We’d Love to Hear from You!</h2>
+            <p class="text-center mb-5">For inquiries, partnerships, or to learn more about our programs, reach out to
+                us:</p>
+            <div class="row justify-content-center">
+                <!-- Contact Details -->
+                <div class="col-md-6">
+                    <div class="contact-info text-center mb-4">
+                        <p><strong>Email:</strong> <a
+                                href="mailto:info@holdingcorefoundation.org">info@holdingcorefoundation.org</a></p>
+                    </div>
+                    <!-- Social Media Links -->
+                    <div class="social-links d-flex justify-content-center gap-3">
+                        <a href="https://facebook.com/holdingcorengo" class="social-icon facebook" aria-label="Facebook"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/holdingcorengo" class="social-icon instagram"
+                            aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/holdingcorengo" target="_blank" class="social-icon twitter"
+                            aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://tiktok.com/@holdingcorengo" target="_blank" class="social-icon tiktok"
+                            aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://youtube.com/@holdingcorengo" target="_blank" class="social-icon youtube"
+                            aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://threads.net/@holdingcorengo" target="_blank" class="social-icon threads"
+                            aria-label="Threads"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Button -->
+            <div class="text-center mt-4">
+                <a href="contact.html" class="btn btn-primary contact-btn">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    // Initialize EmailJS (replace 'your_user_id' with your actual user ID from EmailJS)
+    emailjs.init("EBMasy5mVygUIMnhu");
+
+    document.getElementById("volunteerForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Get the submit button and change text to "Loading"
+        const submitButton = document.getElementById("submitButton");
+        submitButton.disabled = true; // Disable the submit button
+        let loadingText = "Loading"; // Initial text
+
+        // Function to animate the "Loading..." text with dots
+        let dotCount = 0;
+        const loadingInterval = setInterval(function () {
+            submitButton.innerHTML = loadingText + ".".repeat(dotCount % 4); // Add dots progressively
+            dotCount++;
+        }, 500); // Add a dot every 500ms
+
+        // Get form data
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const location = document.getElementById("location").value.trim();
+        const gender = document.getElementById("gender").value;
+        const availability = document.getElementById("availability").value;
+
+        // Prepare the data to be sent
+        const formData = {
+            name: name,
+            email: email,
+            phone: phone,
+            location: location,
+            gender: gender,
+            availability: availability
+        };
+
+        // Send email via Email.js
+        emailjs.send("service_qctgulr", "template_8dmwwcf", formData)
+            .then(function (response) {
+                // Clear the loading animation
+                clearInterval(loadingInterval); // Stop the dot animation
+                submitButton.disabled = false;
+                submitButton.innerHTML = "Become a Volunteer"; // Reset button text
+
+                // Show success message
+                Swal.fire({
+                    title: 'Thank you for your interest!',
+                    text: 'Your volunteer request has been submitted successfully. We will get in touch with you soon.',
+                    icon: 'success',
+                    confirmButtonText: 'Close'
+                });
+
+                // Optionally, reset the form after successful submission
+                document.getElementById("volunteerForm").reset();
+            }, function (error) {
+                // Clear the loading animation
+                clearInterval(loadingInterval); // Stop the dot animation
+                submitButton.disabled = false;
+                submitButton.innerHTML = "Become a Volunteer"; // Reset button text
+
+                // Show error message
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'There was an error submitting your request. Please try again later.',
+                    icon: 'error',
+                    confirmButtonText: 'Close'
+                });
+            });
+    });
+</script>
+
+
+{% endblock %}

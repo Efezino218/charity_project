@@ -1,0 +1,203 @@
+{% extends "holdingcore_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-center text-lg-left">
+                <h1 class="display-4 fw-bold mb-4" style="color: #fff;">Our Programs</h1>
+                <p class="lead mb-4">Join us in making a lasting impact by supporting our mission to empower
+                    individuals and communities.</p>
+                <a href="volunteer.html" class="btn btn-primary btn-lg">Become a Volunteer</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="events-container">
+    <div class="events-header">
+        At Holdingcore Empowerment Foundation, we are dedicated to transforming lives through impactful empowerment
+        programs. Rooted in compassion and a belief in every individual’s potential to rise above challenges when
+        given the right opportunities and support, our initiatives uplift underserved communities and inspire hope.
+    </div>
+
+    <div class="program-list">
+        {% for program in page_obj %}
+        <div class="event-card"
+            data-video-url="{% if program.video_file %}{{ program.video_file.url }}{% else %}{{ program.video_url }}{% endif %}">
+            <div class="video-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+            </div>
+            <div class="event-date">
+                <div class="placeholder"><img src="{% static 'holdingcore_app/img/program-avatar.png' %}" alt=""></div>
+            </div>
+            <div class="event-details">
+                <h3>{{ program.title }}</h3>
+                <p>Location: {{ program.location }}</p>
+                <p>{{ program.content }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <!-- Pagination Controls -->
+    <div class="custom-pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page=1" class="pagination-button">First</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="pagination-button">Previous</a>
+        {% endif %}
+
+        <!-- Page Numbers -->
+        {% for page_num in page_obj.paginator.page_range %}
+        {% if page_num == page_obj.number %}
+        <span class="pagination-button active">{{ page_num }}</span>
+        {% else %}
+        <a href="?page={{ page_num }}" class="pagination-button">{{ page_num }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="pagination-button">Next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination-button">Last</a>
+        {% endif %}
+    </div>
+
+
+</div>
+
+
+<!-- Video Modal -->
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-modal-close">&times;</span>
+        <div class="video-responsive">
+            <!-- Local Video Player -->
+            <video id="localVideoPlayer" controls style="display: none; width: 100%; height: 100%;">
+                <source id="localVideoSource" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- YouTube Player -->
+            <iframe id="youtubeFrame" src="" frameborder="0" allowfullscreen
+                style="display: none; width: 100%; height: 100%;"></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Contact Us Section -->
+<div class="contact-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">We’d Love to Hear from You!</h2>
+        <p class="text-center mb-5">For inquiries, partnerships, or to learn more about our programs, reach out to
+            us:</p>
+        <div class="row justify-content-center">
+            <!-- Contact Details -->
+            <div class="col-md-6">
+                <div class="contact-info text-center mb-4">
+                    <p><strong>Email:</strong> <a
+                            href="mailto:info@holdingcorefoundation.org">info@holdingcorefoundation.org</a></p>
+                </div>
+                <!-- Social Media Links -->
+                <div class="social-links d-flex justify-content-center gap-3">
+                    <a href="https://facebook.com/holdingcorengo" class="social-icon facebook" aria-label="Facebook"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/holdingcorengo" class="social-icon instagram" aria-label="Instagram"
+                        target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/holdingcorengo" target="_blank" class="social-icon twitter"
+                        aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://tiktok.com/@holdingcorengo" target="_blank" class="social-icon tiktok"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@holdingcorengo" target="_blank" class="social-icon youtube"
+                        aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://threads.net/@holdingcorengo" target="_blank" class="social-icon threads"
+                        aria-label="Threads"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Button -->
+        <div class="text-center mt-4">
+            <a href="contact.html" class="btn btn-primary contact-btn">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoButtons = document.querySelectorAll('.video-button');
+        const videoModal = document.getElementById('videoModal');
+        const youtubeFrame = document.getElementById('youtubeFrame');
+        const localVideoPlayer = document.getElementById('localVideoPlayer');
+        const localVideoSource = document.getElementById('localVideoSource');
+        const closeButton = document.querySelector('.video-modal-close');
+
+        videoButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const eventCard = this.closest('.event-card');
+                const videoUrl = eventCard.getAttribute('data-video-url');
+
+                if (videoUrl.includes('youtube') || videoUrl.includes('youtu.be')) {
+                    // Handle YouTube video
+                    const embedUrl = videoUrl.replace('youtu.be', 'www.youtube.com/embed').split('?')[0];
+                    youtubeFrame.src = embedUrl;
+                    youtubeFrame.style.display = 'block';
+                    localVideoPlayer.style.display = 'none';
+                } else {
+                    // Handle local video
+                    localVideoSource.src = videoUrl;
+                    localVideoPlayer.load();
+                    localVideoPlayer.style.display = 'block';
+                    youtubeFrame.style.display = 'none';
+                }
+
+                videoModal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function () {
+            // Clear video sources
+            youtubeFrame.src = '';
+            localVideoPlayer.pause();
+            localVideoSource.src = '';
+
+            // Hide the modal
+            videoModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function (event) {
+            if (event.target === videoModal) {
+                // Clear video sources
+                youtubeFrame.src = '';
+                localVideoPlayer.pause();
+                localVideoSource.src = '';
+
+                // Hide the modal
+                videoModal.style.display = 'none';
+            }
+        });
+    });
+
+
+
+
+</script>
+
+{% endblock %}

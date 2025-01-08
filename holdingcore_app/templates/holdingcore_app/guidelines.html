@@ -1,0 +1,298 @@
+{% extends "holdingcore_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 text-center text-lg-left">
+                    <h1 class="display-4 fw-bold mb-4" style="color: #fff;">Empowering Communities, Transforming Lives
+                    </h1>
+                    <p class="lead mb-4">Discover the principles that guide our mission and ensure fairness,
+                        transparency, and respect in all our programs and engagements.</p>
+                    <a href="donate.html" class="btn btn-primary btn-lg">Make a Donate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- /* Background Images */ -->
+<style>
+    .community-section {
+        background: url("{% static 'holdingcore_app/img/guide-1.png' %}") center/cover no-repeat;
+    }
+    .program-section {
+        background: url("{% static 'holdingcore_app/img/guide-2.png' %}") center/cover no-repeat;
+    }
+    
+
+    /* Guidline Page */
+.header-section {
+    background: linear-gradient(135deg, var(--maya-blue) 0%, #1e90ff 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.guidelines-container {
+    max-width: 1100px;
+    margin: -50px auto 30px;
+    padding: 0 15px;
+}
+
+.guidelines-container h2 {
+    color: #ffffff !important;
+}
+
+.guideline-card {
+    border-radius: 3px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.guideline-card:hover {
+    transform: translateY(-10px);
+}
+
+.guideline-header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent overlay */
+    color: white;
+    padding: 15px 20px;
+}
+
+.guideline-header svg {
+    margin-right: 15px;
+}
+
+.guideline-body {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    /* Slightly opaque background */
+}
+
+.guideline-body div {
+    color: #51bfff;
+}
+
+.guideline-body div strong {
+    font-size: 20px;
+}
+</style>
+    <!-- Guidelines Container -->
+    <div class="guidelines-container">
+        <!-- Community Guidelines -->
+        <div class="guideline-card community-section">
+            <div class="guideline-header">
+                <div class="icon-wrapper">
+                    <i data-lucide="users" size="30"></i>
+                </div>
+                <h2 class="m-0">Community Guidelines</h2>
+            </div>
+            <div class="guideline-header">
+                <p>At Holdingcore Empowerment Foundation, we believe that a community thrives on mutual respect,
+                    transparency, and trust. To maintain order and fairness in all our engagements, we have established
+                    the following guidelines:</p>
+            </div>
+            <div class="guideline-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="map-pin" class="me-3"></i>
+                            <strong>Location</strong>
+                        </div>
+                        <p class="text-muted">Your state and country must be visible on your X profile. This helps us
+                            consider all regions when selecting beneficiaries for giveaways. For example, include
+                            “Lagos/Kaduna,” not abbreviations like “Eko/Kd.”</p>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="user-check" class="me-3"></i>
+                            <strong>Be Real</strong>
+                        </div>
+                        <p class="text-muted">We value authenticity. Your profile should display your real name and a
+                            clear profile picture to ensure transparency.
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="clock" class="me-3"></i>
+                            <strong> Accounts Older Than 8 Months </strong>
+                        </div>
+                        <p class="text-muted">To qualify for giveaways, your X account must be at least 8 months old.
+                            This ensures fairness and discourages the use of newly created accounts.</p>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="smile" class="me-3"></i>
+                            <strong>Decency</strong>
+                        </div>
+                        <p class="text-muted">YWe expect decency in all your interactions and engagements. Respectful
+                            conduct fosters a positive and inclusive community.</p>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="heart" class="me-3"></i>
+                            <strong>Loyalty</strong>
+                        </div>
+                        <p class="text-muted">Loyalty matters. If you are against the foundation in any way, you will
+                            not be considered for any current or future benefits. Join Us in Building a Stronger
+                            Community Adhering to these guidelines allows us to create an organized, fair, and
+                            supportive community that can empower lives and transform the world.
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="shield-check" class="me-3"></i>
+                            <strong>ID Verification</strong>
+                        </div>
+                        <p class="text-muted">Your name on your profile must match your account details and a valid ID.
+                            This verification process ensures we are helping the right individuals. </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Program Guidelines -->
+        <div class="guideline-card program-section">
+            <div class="guideline-header">
+                <div class="icon-wrapper">
+                    <i data-lucide="bookmark" size="30"></i>
+                </div>
+                <h2 class="m-0">Program Guidelines</h2>
+            </div>
+            <div class="guideline-header">
+                <p>At Holdingcore Empowerment Foundation, our programs are designed to uplift lives, foster empowerment,
+                    and create lasting change in communities. To ensure transparency, fairness, and the effective
+                    implementation of our initiatives, we have established the following guidelines: </p>
+            </div>
+            <div class="guideline-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="file-check" class="me-3"></i>
+                            <strong>Eligibility Criteria</strong>
+                        </div>
+                        <p class="text-muted">- Each program has specific eligibility requirements tailored to its
+                            goals. Beneficiaries must meet these criteria to be considered. <br>
+                            - Applicants must provide accurate and verifiable information during registration or
+                            application.
+                        </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="shield-check" class="me-3"></i>
+                            <strong> ID Verification</strong>
+                        </div>
+                        <p class="text-muted">- Beneficiaries are required to present a valid form of identification
+                            that matches the information provided on their application or profile. This ensures fairness
+                            and prevents fraudulent claims.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="badge" class="me-3"></i>
+                            <strong>One Program Per Beneficiary Per Cycle </strong>
+                        </div>
+                        <p class="text-muted">- To allow broader participation, beneficiaries are eligible for one
+                            program at a time during each cycle.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="handshake" class="me-3"></i>
+                            <strong>Transparency and Honesty </strong>
+                        </div>
+                        <p class="text-muted">- All participants must be transparent about their needs and goals.
+                            Providing false information may result in disqualification or exclusion from current and
+                            future programs. </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="users" class="me-3"></i>
+                            <strong>Respect and Decorum</strong>
+                        </div>
+                        <p class="text-muted">- Beneficiaries and participants are expected to engage respectfully with
+                            Holdingcore staff, volunteers, and fellow beneficiaries.
+                            - Decency is required in all communications and interactions related to our programs.
+                        </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="calendar" class="me-3"></i>
+                            <strong>Timely Participation </strong>
+                        </div>
+                        <p class="text-muted">- Beneficiaries must attend scheduled program activities, training
+                            sessions, or distribution events on time. Failure to participate as agreed may lead to
+                            forfeiture of benefits.
+                        </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="box" class="me-3"></i>
+                            <strong>Non-Transferable Benefits </strong>
+                        </div>
+                        <p class="text-muted">- Benefits, tools, or resources provided through our programs cannot be
+                            sold, transferred, or used for purposes outside the intended goals of the program.
+                        </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="award" class="me-3"></i>
+                            <strong> Loyalty and Community Alignment </strong>
+                        </div>
+                        <p class="text-muted">- Beneficiaries must support the foundation’s values and initiatives.
+                            Actions that contradict or undermine the foundation’s mission may lead to disqualification
+                            from current and future opportunities.
+                        </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="message-circle" class="me-3"></i>
+                            <strong> Feedback and Accountability </strong>
+                        </div>
+                        <p class="text-muted">- Beneficiaries are encouraged to provide honest feedback about the
+                            program to help us improve. <br>
+                            - Accountability is key. Beneficiaries must uphold the values of integrity and fairness when
+                            utilizing resources provided by the foundation.
+
+                        </p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i data-lucide="clipboard-list" class="me-3"></i>
+                            <strong>Program-Specific Guidelines </strong>
+                        </div>
+                        <p class="text-muted">- Each program may have additional rules or criteria specific to its
+                            objectives (e.g., business grants, scholarships, or giveaways). These will be communicated
+                            during the application process.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="call-section">
+        <div class="container">
+            <h3>Together, We Can Make a Difference</h3>
+            <p>Join us in building a stronger, more empowered community</p>
+        </div>
+    </div>
+
+    {% endblock %}

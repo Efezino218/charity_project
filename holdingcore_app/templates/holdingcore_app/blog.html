@@ -1,0 +1,137 @@
+{% extends "holdingcore_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>From Blog</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Blog</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Our Blog</p>
+            <h2>Explore our latest updates and community impact.</h2>
+        </div>
+        <div class="row">
+            {% for blog in page_obj %}
+            <!-- Blog Item -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <!-- Add a data-bs-target to trigger the modal -->
+                        <img src="{{ blog.image.url }}" alt="Image" class="img-fluid modal-trigger"
+                            data-bs-toggle="modal" data-bs-target="#imageModal-{{ blog.id }}">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">{{ blog.title }}</a></h3>
+                        <p>{{ blog.content|truncatewords:30 }}</p>
+                    </div>
+                    <div class="blog-meta">
+                        <p>
+                            <i class="fa fa-comments"></i>
+                            <a href="https://x.com/Holdingcorengo" target="_blank">Join the Conversation on Twitter</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="imageModal-{{ blog.id }}" tabindex="-1" aria-labelledby="imageModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center p-0">
+                            <img src="{{ blog.image.url }}" alt="Image" class="img-fluid modal-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                /* Ensure the image fits inside the modal properly */
+
+
+                /* Arrange the close button properly */
+                .modal-header {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 1050;
+                    padding: 1rem;
+                    background: transparent;
+                }
+
+                .btn-close {
+                    padding: 0.5rem;
+                    border: none;
+                    background-color: #f8f9fa;
+                    /* Match Bootstrap modal background */
+                    border-radius: 50%;
+                    opacity: 0.8;
+                    transition: opacity 0.2s;
+                }
+
+                .btn-close:hover {
+                    opacity: 1;
+                }
+
+                /* Remove extra borders from modal content */
+                .modal-content {
+                    background: #fff;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    border: none;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                }
+            </style>
+            {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="custom-pagination text-center">
+            {% if page_obj.has_previous %}
+            <a href="?page=1" class="pagination-button">First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-button">Previous</a>
+            {% endif %}
+
+            {% for page_num in page_obj.paginator.page_range %}
+            {% if page_num == page_obj.number %}
+            <span class="pagination-button active">{{ page_num }}</span>
+            {% else %}
+            <a href="?page={{ page_num }}" class="pagination-button">{{ page_num }}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="pagination-button">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination-button">Last</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+
+
+
+{% endblock %}
