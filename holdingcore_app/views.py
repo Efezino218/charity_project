@@ -9,6 +9,16 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Program, Blog
 from django.core.paginator import Paginator
 
+import requests
+import json
+import uuid
+import time
+from django.shortcuts import render, redirect
+from django.conf import settings
+import logging
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 # Create your views here.
@@ -80,131 +90,9 @@ def contact(request):
 
 
 
-
-# Secret API key for Flutterwave (Test mode)
-# def process_donation(request):
-#     if request.method == "POST":
-#         # Get form data
-#         name = request.POST.get("name")
-#         email = request.POST.get("email")
-#         amount = request.POST.get("amount")
-#         currency = request.POST.get("currency")
-
-#         # Flutterwave API endpoint
-#         url = "https://api.flutterwave.com/v3/payments"
-
-#         # Request payload
-#         payload = {
-#             "tx_ref": f"donation_{name}_{amount}",
-#             "amount": amount,
-#             "currency": currency,
-#             "redirect_url": request.build_absolute_uri('/donation-success/'),  # Redirect after payment
-#             "customer": {
-#                 "email": email,
-#                 "name": name,
-#             },
-#             "customizations": {
-#                 "title": "Charity Donation",
-#                 "description": "Donation for helping needy people."
-#             },
-#         }
-
-#         # Headers with the secret key
-#         headers = {
-#             "Authorization": f"Bearer {settings.FLW_SECRET_KEY}",
-#             "Content-Type": "application/json",
-#         }
-
-#         # Send POST request to Flutterwave
-#         response = requests.post(url, json=payload, headers=headers)
-#         response_data = response.json()
-
-#         # Redirect to payment link if successful
-#         if response_data["status"] == "success":
-#             payment_link = response_data["data"]["link"]
-#             return redirect(payment_link)
-
-#         return JsonResponse({"error": "Payment initialization failed."}, status=400)
-
-#     return JsonResponse({"error": "Invalid request method."}, status=405)
-
-# def donation_success(request):
-#     return render(request, "donation_success.html")
-
-
-
-
-
-# Set up your Flutterwave API credentials
-# FLW_PUBLIC_KEY = "FLWPUBK_TEST-993473418a25acd957bfeae3e5db3ffc-X"
-# FLW_SECRET_KEY = "FLWSECK_TEST-643ba6ecea228bb2615a06892d6a50ea-X"
-# FLW_ENCRYPTION_KEY = "FLWSECK_TESTa818b743b7c1"
-
-# @csrf_exempt
-# def process_donation(request):
-#     if request.method == "POST":
-#         name = request.POST.get('name')
-#         email = request.POST.get('email')
-#         amount = request.POST.get('amount')
-#         currency = request.POST.get('currency')
-
-#         # Step 1: Set up the payment request data
-#         data = {
-#             "tx_ref": "txn" + str(int(time.time())),  # Unique transaction reference
-#             "amount": amount,
-#             "currency": currency,
-#             "payment_type": "card",  # You can change to other types (e.g., bank, wallet)
-#             "email": email,
-#             "phone_number": "",  # Optional: collect phone number if needed
-#             "order_id": "order12345",  # Optional: Track orders
-#         }
-
-#         # Step 2: Make the API request to Flutterwave
-#         headers = {
-#             "Authorization": f"Bearer {FLW_SECRET_KEY}",
-#         }
-
-#         response = requests.post(
-#             "https://api.flutterwave.com/v3/charges?order_id=order12345",  # Flutterwave API endpoint
-#             headers=headers,
-#             data=data
-#         )
-        
-#         # Step 3: Handle the response
-#         response_data = response.json()
-
-#         if response_data['status'] == 'success':
-#             # Redirect to Flutterwave checkout page for the user to complete payment
-#             payment_link = response_data["data"]["payment_url"]
-#             return redirect(payment_link)
-#         else:
-#             return JsonResponse({"message": "Error processing donation, please try again."})
-
-#     return render(request, 'holdingcore_app/donate.html')  # Update with your actual template name
-
-
-
-# def payment_response(request):
-#     # Check the payment status from the GET parameters (Flutterwave sends this)
-#     payment_status = request.GET.get("status")
-
-#     if payment_status == "successful":
-#         return render(request, 'holdingcore_app/donation_success.html')  # Success page
-#     else:
-#         return render(request, 'holdingcore_app/donation_failed.html')  # Failure page
-
-
-
-
-import requests
-import json
-import uuid
-import time
-from django.shortcuts import render, redirect
-from django.conf import settings
-import logging
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+#---------------------------------------------
+    ## FlutterWave Payment Intergrations ## 
+#------------------------------------------------
 
 logger = logging.getLogger(__name__)
 
@@ -330,3 +218,10 @@ def verify_payment(request):
             'transaction': response_data.get('data', {}),
             'error_message': response_data.get('message', 'Payment verification failed.')
         })
+        
+#---------------------------------------------
+    ## FlutterWave Payment Intergrations END ## 
+#------------------------------------------------
+
+
+
