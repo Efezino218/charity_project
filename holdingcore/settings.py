@@ -90,19 +90,21 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     
-    #   'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': os.getenv('DB_NAME'),
-    #     'USER': os.getenv('DB_USER'),
-    #     'PASSWORD': os.getenv('DB_PASSWORD'),
-    #     'HOST': os.getenv('DB_HOST'),
-    #     'PORT': os.getenv('DB_PORT', '5432'),  # Default port for PostgreSQL is 5432
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',  # This tells Django to use PostgreSQL
+        'NAME': os.getenv('DB_NAME'),  # This gets the database name from your environment
+        'USER': os.getenv('DB_USER'),  # This gets the database user from your environment
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # This gets the password from your environment
+        'HOST': os.getenv('DB_HOST'),  # This gets the host from your environment (localhost in this case)
+        'PORT': os.getenv('DB_PORT', '5432'),  # This gets the port from your environment, defaulting to 5432
+    }
 }
 
-DATABASES = {
-    "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
-}
+
+### Uncomment For Render Hosting ###
+# DATABASES = {
+#     "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+# }
 
 
 AUTH_USER_MODEL = 'holdingcore_app.User'
@@ -188,7 +190,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = [
     BASE_DIR / "static",  #used it when you have static files outsit your static folder
 ]
-
 
 
 
