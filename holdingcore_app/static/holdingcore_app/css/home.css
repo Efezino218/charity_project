@@ -8,17 +8,23 @@
 
 /* Styling for Navbar Donate Button */
 .donate-btn {
+    background-color: #51c0ff !important;
+    border: 1px solid #ffffff;
     color: #fff;
-    font-weight: bold;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 12px;
     transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
 .donate-btn:hover {
-    background-color: #ff707f;
-    box-shadow: 0 4px 8px rgba(255, 75, 92, 0.3);
+    color: #fff;
+    box-shadow: 0 4px 8px #000000a6;
 }
 
 /* Search Bar Styling */
@@ -62,6 +68,25 @@
 }
 
 /* Dropdown Styling */
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    padding: 10px 15px 8px 15px;
+    color: #000000a6;
+    /* text-shadow:
+        1px 1px 0 #51c0ff,
+        -1px -1px 0 #51c0ff,
+        1px -1px 0 #51c0ff,
+        -1px 1px 0 #51c0ff; */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #d2eeff;
+    transition: none;
+}
+
 .navbar .dropdown-menu {
     border-radius: 0 0 10px 10px;
     background-color: #ffffff;
@@ -336,6 +361,13 @@
     color: #ffffff;
     /* White for text on blue */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+.cta-contents {
+    background: linear-gradient(to right, #000000a6 50%, #51bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Button Styling */
@@ -652,13 +684,14 @@ ______________________________*/
     background-color: #51c0ff;
     border: 1px solid #ffffff;
     color: #fff;
-    padding: 10px 20px;
     cursor: pointer;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
     border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 12px 50px;
     transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
@@ -716,7 +749,7 @@ ______________________________*/
 /* Program/Event Page */
 /* Events Container */
 .events-container {
-    max-width: 900px;
+    max-width: 80%;
     margin: 0 auto;
     /* position: relative; */
     /* Ensure this is set to anchor absolute elements */
@@ -746,17 +779,33 @@ ______________________________*/
     /* Optional: Width adjustment */
 }
 
-.event-card {
+.card-title {
+    color: #4a4c70;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    min-height: 2.5rem;
     display: flex;
     align-items: center;
-    margin-top: 25px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+
 }
+
+.read-more-btn {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    padding: 0;
+    text-decoration: none;
+}
+
+.read-more-btn:hover {
+    color: #0056b3;
+}
+
 
 .event-card:hover {
     transform: scale(1.02);
@@ -849,32 +898,8 @@ ______________________________*/
 
 }
 
-/* Youtube Modal Button */
-/* Full-Screen Video Button */
-.video-button {
-    position: absolute;
-    top: 10px;
-    right: 50px;
-    background-color: #FF0000;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    z-index: 2;
-}
-
-.video-button:hover {
-    background-color: #3aa0e0;
-}
-
-/* Modal Styles */
-.video-modal {
+/* Modal styling */
+.modal-Pop {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -883,68 +908,50 @@ ______________________________*/
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
 }
 
-.video-modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 800px;
-    position: relative;
-    text-align: center;
-    /* Center the content */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    /* Ensures the entire image is displayed */
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-.video-close {
-    color: #aaa;
+.modal-close {
     position: absolute;
     top: 10px;
-    right: 20px;
-    font-size: 28px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.video-close:hover {
-    color: #FF0000;
-    /* Highlight close button on hover */
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
 }
 
-/* Responsive Container for Videos */
-.video-responsive {
-    position: relative;
-    padding-bottom: 56.25%;
-    /* Aspect ratio 16:9 */
-    height: 0;
-    overflow: hidden;
-}
+/* Animation for smoother opening */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
 
-.video-responsive iframe,
-.video-responsive video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    to {
+        opacity: 1;
+    }
 }
 
 
-.video-modal-close {
-    color: #aaa;
-    position: absolute;
-    top: 4px;
-    right: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.video-modal-close:hover {
-    color: #FF0000;
-    /* Highlight close button on hover */
-}
 
 /* Guidline Page */
 .header-section {
@@ -1026,9 +1033,9 @@ ______________________________*/
     background: url('../img/guide-1.png') center/cover no-repeat;
 }
 
-    .program-section {
-        background: url('../img/guide-2.png') center/cover no-repeat;
-    }
+.program-section {
+    background: url('../img/guide-2.png') center/cover no-repeat;
+}
 
 
 

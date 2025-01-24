@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Ensure jQuery is loaded:  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Email.Js  -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- contact -->
@@ -67,65 +70,76 @@
 <body>
     <!-- Your body content here -->
 
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a href="{% url 'home' %}" class="navbar-brand">
+                <img src="{% static 'holdingcore_app/img/logo_white.png' %}" width="70px" alt="Light Logo"
+                    class="logo-light">
+                <img src="{% static 'holdingcore_app/img/logob.png' %}" width="70px" alt="Dark Logo" class="logo-dark">
+                <span class="brand-text">Holdingcore <br> NGO Foundation</span>
+            </a>
 
-   <!-- Nav Bar Start -->
-<div class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a href="{% url 'home' %}" class="navbar-brand">
-            <img src="{% static 'holdingcore_app/img/LOGOS (2).png' %}" width="70px" alt="">
-            <span>Holdingcore <br> NGO Foundation</span>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav ml-auto">
-                <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">
-                    Home
-                </a>
-                <a href="{% url 'about' %}" class="nav-item nav-link {% if request.path == '/about/' %}active{% endif %}">
-                    About
-                </a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle {% if request.path == '/programs/' or request.path == '/volunteer/' or request.path == '/blog/' or request.path == '/event_gallery/' or request.path == '/guidelines/' %}active{% endif %}" data-toggle="dropdown">Explore</a>
-                    <div class="dropdown-menu">
-                        <a href="{% url 'programs' %}" class="dropdown-item {% if request.path == '/programs/' %}active{% endif %}">
-                            Our Programs
-                        </a>
-                        <a href="{% url 'volunteer' %}" class="dropdown-item {% if request.path == '/volunteer/' %}active{% endif %}">
-                            Become A Volunteer
-                        </a>
-                        <a href="{% url 'blog' %}" class="dropdown-item {% if request.path == '/blog/' %}active{% endif %}">
-                            Blog
-                        </a>
-                        <a href="{% url 'event_gallery' %}" class="dropdown-item {% if request.path == '/event_gallery/' %}active{% endif %}">
-                            Event Gallery
-                        </a>
-                        <a href="{% url 'guidelines' %}" class="dropdown-item {% if request.path == '/guidelines/' %}active{% endif %}">
-                            Guidelines
-                        </a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">
+                        Home
+                    </a>
+                    <a href="{% url 'about' %}"
+                        class="nav-item nav-link {% if request.path == '/about/' %}active{% endif %}">
+                        About
+                    </a>
+                    <div class="nav-item dropdown">
+                        <a href="#"
+                            class="nav-link dropdown-toggle {% if request.path == '/programs/' or request.path == '/volunteer/' or request.path == '/blog/' or request.path == '/event_gallery/' or request.path == '/guidelines/' %}active{% endif %}"
+                            data-toggle="dropdown">Explore</a>
+                        <div class="dropdown-menu">
+                            <a href="{% url 'programs' %}"
+                                class="dropdown-item {% if request.path == '/programs/' %}active{% endif %}">
+                                Our Programs
+                            </a>
+                            <a href="{% url 'volunteer' %}"
+                                class="dropdown-item {% if request.path == '/volunteer/' %}active{% endif %}">
+                                Become A Volunteer
+                            </a>
+                            <a href="{% url 'blog' %}"
+                                class="dropdown-item {% if request.path == '/blog/' %}active{% endif %}">
+                                Blog
+                            </a>
+                            <a href="{% url 'event_gallery' %}"
+                                class="dropdown-item {% if request.path == '/event_gallery/' %}active{% endif %}">
+                                Event Gallery
+                            </a>
+                            <a href="{% url 'guidelines' %}"
+                                class="dropdown-item {% if request.path == '/guidelines/' %}active{% endif %}">
+                                Guidelines
+                            </a>
+                        </div>
                     </div>
+                    <a href="{% url 'contact' %}"
+                        class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">
+                        Contact
+                    </a>
+
+                    <a href="{% url 'donate' %}" class="btn donate-btn">
+                        Donate <i class="fas fa-hand-holding-heart"></i>
+                    </a>
                 </div>
-                <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">
-                    Contact
-                </a>
-             
-                <a href="{% url 'donate' %}" class="btn btn-primary ml-lg-3 donate-btn">
-                    Donate <i class="fas fa-hand-holding-heart"></i>
-                </a>
+                <form class="search-bar ml-lg-3 mt-3 mt-lg-0" method="get" action="">
+                    <div class="input-group">
+                        <input type="search" class="form-control" name="q" placeholder="Search for causes, events..."
+                            aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </div>
+                </form>
             </div>
-            <form class="search-bar ml-lg-3 mt-3 mt-lg-0" method="get" action="">
-                <div class="input-group">
-                    <input type="search" class="form-control" name="q" placeholder="Search for causes, events..."
-                        aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </div>
-            </form>
         </div>
     </div>
-</div>
-<!-- Nav Bar End -->
+    <!-- Nav Bar End -->
 
 
 
@@ -154,7 +168,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-link">
-                        <h2><img src="{% static 'holdingcore_app/img/LOGOS.png' %}" width="60px" alt=""> Holdingcore</h2>
+                        <h2><img src="{% static 'holdingcore_app/img/LOGOS.png' %}" width="60px" alt=""> Holdingcore
+                        </h2>
                         <p>Empowering underserved communities through education, financial support, and essential
                             resources to foster growth and resilience across Nigeria.</p>
 
@@ -177,7 +192,7 @@
                         <p><i class="fa fa-map-marker-alt"></i>Lagos State, Nigeria</p>
                         <p><i class="fa fa-phone-alt"></i>+234 702 5755 370</p>
                         <p><i class="fa fa-envelope"></i>info@holdingcorefoundation.org <span
-                                style="display: block; text-align: center;">OR</span>
+                                style="display: block; text-align: center;"></span>
                             holdingcorengo@gmail.com
                         </p>
                         <div class="footer-social">
@@ -209,7 +224,8 @@
         <div class="container copyright">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; <a href="#">Holdingcore NGO Foundation</a>, All Right Reserved.</p>
+                    <p>&copy; <a href="#">Copyright Holdingcore NGO Foundation <span id="current-year"></span></a>, All
+                        Rights Reserved.</p>
                 </div>
                 <div class="col-md-6">
                     <p>Designed By <a href="https://www.cyjustdeals.com/" target="_blank">Cyjust Deals</a></p>
@@ -219,12 +235,27 @@
     </div>
     <!-- Footer End -->
 
+    <script>
+        // Get the current year
+        const currentYear = new Date().getFullYear();
+        // Set the current year in the span
+        document.getElementById('current-year').textContent = currentYear;
+    </script>
+
 
 
     <!-- Contact Form  Javascript Function -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             initializeContactForm();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Prevent dropdown from closing on click of links inside it
+            $('.dropdown-menu a').click(function (e) {
+                e.stopPropagation(); // Prevent dropdown from closing
+            });
         });
     </script>
 
@@ -246,6 +277,7 @@
 
     <!-- Bootstrap JS and Popper.js (required for modal) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 
     {% comment %}
     {% endcomment %}

@@ -652,13 +652,14 @@ ______________________________*/
     background-color: #51c0ff;
     border: 1px solid #ffffff;
     color: #fff;
-    padding: 10px 20px;
     cursor: pointer;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
     border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 12px 50px;
     transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
@@ -946,7 +947,62 @@ ______________________________*/
     /* Highlight close button on hover */
 }
 
+/* Guidline Page */
+.header-section {
+    background: linear-gradient(135deg, var(--maya-blue) 0%, #1e90ff 100%);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
 
+.guidelines-container {
+    max-width: 1100px;
+    margin: -50px auto 30px;
+    padding: 0 15px;
+}
+
+.guidelines-container h2 {
+    color: #ffffff !important;
+}
+
+.guideline-card {
+    border-radius: 3px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.guideline-card:hover {
+    transform: translateY(-10px);
+}
+
+.guideline-header {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent overlay */
+    color: white;
+    padding: 15px 20px;
+}
+
+.guideline-header svg {
+    margin-right: 15px;
+}
+
+.guideline-body {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    /* Slightly opaque background */
+}
+
+.guideline-body div {
+    color: #51bfff;
+}
+
+.guideline-body div strong {
+    font-size: 20px;
+}
 
 .icon-wrapper {
     background-color: var(--soft-blue);
@@ -966,6 +1022,14 @@ ______________________________*/
     padding: 50px 0;
 }
 
+/* Background Images */
+.community-section {
+    background: url('../img/guide-1.png') center/cover no-repeat;
+}
+
+.program-section {
+    background: url('../img/guide-2.png') center/cover no-repeat;
+}
 
 
 

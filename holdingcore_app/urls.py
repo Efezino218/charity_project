@@ -18,5 +18,7 @@ urlpatterns = [
     # path('donation-form/', views.initialize_payment, name='donation_form'),  # Show form and handle POST
     path('initialize-payment/', views.initialize_payment, name='initialize_payment'),  # Handle initialization
     path('verify-payment/', views.verify_payment, name='verify_payment'),  # Verify payment 
+    
+    
 
 ]

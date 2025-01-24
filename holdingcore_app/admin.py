@@ -8,7 +8,7 @@ class ProgramAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
     fieldsets = (
         (None, {
-            'fields': ('title', 'content', 'location', 'video_url', 'video_file')
+            'fields': ('title', 'content', 'location', 'photo', 'video_url', 'video_file')
         }),
     )
     
@@ -18,3 +18,10 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
 
 admin.site.register(Blog, BlogAdmin)
+
+
+
+
+
+
+

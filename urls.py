@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from django.http import HttpResponse
 
 urlpatterns = [
+    # path('jet/', include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
     path('', include('holdingcore_app.urls')),  # Include your app's URLs
         

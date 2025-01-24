@@ -260,47 +260,27 @@ a {
 /**********************************/
 /*********** Nav Bar CSS **********/
 /**********************************/
-.navbar .navbar-brand span {
-    display: inline-block;
-    color: #ffffff;
-    /* White text */
-    font-size: 12px;
-    line-height: 1.2;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: left;
-    margin-left: 10px;
-
-    /* Solid outline effect */
-    text-shadow:
-        1px 1px 0 #51c0ff,
-        -1px -1px 0 #51c0ff,
-        1px -1px 0 #51c0ff,
-        -1px 1px 0 #51c0ff;
-    /* Outline with no blur */
-}
-
-
-
+/**********************************/
+/*********** Nav Bar CSS **********/
+/**********************************/
+/* General Navbar styles */
+/* Default navbar styles */
 .navbar {
     position: relative;
     transition: .5s;
     z-index: 999;
+    background: #51c0ff;
+    /* Maya Blue */
 }
 
-.navbar.nav-sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: .5s;
-}
-
+/* Styling for the brand */
 .navbar .navbar-brand {
+    display: flex;
+    align-items: center;
     margin: 0;
     color: #ffffff;
     font-size: 12px;
-    line-height: 0px;
+    line-height: 1.2;
     font-weight: 700;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -308,78 +288,86 @@ a {
 
 .navbar .navbar-brand img {
     max-width: 100%;
+    margin-right: 10px;
 }
 
-.nav-link {
-    color: #343a40;
-}
-
-.navbar-dark .navbar-nav .nav-link,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    padding: 10px 15px 8px 15px;
-    color: #000000a6;
-    /* text-shadow:
-        1px 1px 0 #51c0ff,
-        -1px -1px 0 #51c0ff,
-        1px -1px 0 #51c0ff,
-        -1px 1px 0 #51c0ff; */
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
-    color: #d2eeff;
-    transition: none;
-}
-
-.navbar .dropdown-menu {
-    margin-top: 0;
-    border: 0;
-    border-radius: 0;
+/* Sticky Navbar */
+.navbar.nav-sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background: #ffffff;
+    /* White background when sticky */
+    padding: 5px 20px;
+    z-index: 999;
+    transition: .3s ease-in-out;
 }
 
+/* Initially hide the dark logo */
+.logo-light {
+    display: block !important;
+}
+
+.logo-dark {
+    display: none !important;
+}
+
+/* When navbar is sticky, hide the light logo and show the dark logo */
+.navbar.nav-sticky .logo-light {
+    display: none !important;
+}
+
+.navbar.nav-sticky .logo-dark {
+    display: block !important;
+}
+
+/* Ensure logo-light is always visible on smaller screens when sticky */
+@media (max-width: 991.98px) {
+    .navbar.nav-sticky .logo-light {
+        display: block !important;
+    }
+
+    .navbar.nav-sticky .logo-dark {
+        display: none !important;
+    }
+
+    .navbar {
+        background: #51c0ff !important;
+    }
+}
+
+/* Styling for larger screens */
 @media (min-width: 992px) {
     .navbar {
         position: absolute;
+        /* Default position for larger screens */
         width: 100%;
         background: #51c0ff !important;
         border-bottom: 1px solid rgba(255, 255, 255, .3);
-        z-index: 9;
     }
 
     .navbar.nav-sticky {
-        padding: 10px 60px;
         background: #ffffff !important;
-        border-bottom: none;
+        /* Sticky state with white background */
     }
 
-    .page .navbar {
-        background: #20212B !important;
+    .navbar .navbar-brand .logo-light {
+        display: block;
     }
 
-    .navbar a.nav-link {
-        padding: 8px 15px;
-        font-size: 16px;
-        letter-spacing: 1px;
+    .navbar .navbar-brand .logo-dark {
+        display: none;
+    }
+
+    .navbar.nav-sticky .brand-text {
+        color: #51c0ff;
     }
 }
 
-@media (max-width: 991.98px) {
-    .navbar {
-        padding: 15px;
-        background: #51c0ff !important;
-    }
 
-    .navbar a.nav-link {
-        padding: 5px;
-    }
 
-    .navbar .dropdown-menu {
-        box-shadow: none;
-    }
-}
+
 
 
 /*******************************/
@@ -1531,9 +1519,20 @@ h5 {
 }
 
 .blog .blog-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 700px;
+    /* Fixed height for all blog posts */
+    max-height: 900px;
+    /* Ensures consistency */
+    border: 1px solid #ddd;
+
     margin-bottom: 30px;
     padding-bottom: 30px;
     background: #f3f6ff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .blog .blog-img {
@@ -1556,17 +1555,19 @@ h5 {
 
 .blog .blog-text {
     padding: 30px 30px 15px 30px;
+    text-align: start;
 }
 
 .blog .blog-text h3 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 17px;
+    color: #4a4c70;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    min-height: 2.5rem;
+
+
 }
 
-.blog .blog-text h3 a {
-    color: #4a4c70;
-    text-decoration: none;
-}
 
 .blog .blog-text h3 a:hover {
     color: #51c0ff;

@@ -26,6 +26,7 @@
 
 
     // Sticky Navbar
+    // Sticky Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
             $('.navbar').addClass('nav-sticky');
@@ -33,6 +34,7 @@
             $('.navbar').removeClass('nav-sticky');
         }
     });
+
 
 
     // Dropdown on mouse hover
@@ -196,68 +198,7 @@ function toggleContent(link) {
 //  Contact Form  //
 // ___________________________________
 function initializeContactForm() {
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
 
-        // Get the input values
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
-        const submitButton = document.getElementById("sendMessageButton");
-
-        // Validate each field and show an error if any are empty
-        if (!name || !email || !subject || !message) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Incomplete Form',
-                text: 'Please fill in all fields before submitting the form.'
-            });
-            return; // Stop the function here if any field is empty
-        }
-
-        // Start the loading animation
-        let dotCount = 0;
-        submitButton.innerHTML = "Sending"; // Initial text
-        submitButton.disabled = true; // Disable the button while loading
-        const loadingInterval = setInterval(() => {
-            dotCount = (dotCount + 1) % 4; // Cycle between 0, 1, 2, 3
-            submitButton.innerHTML = "Sending" + ".".repeat(dotCount);
-        }, 500);
-
-        // Send the email if all fields are filled
-        emailjs.send("service_lpbv6tq", "template_fvcskwb", {
-            name: name,
-            email: email,
-            subject: subject,
-            message: message
-        }).then(function (response) {
-            clearInterval(loadingInterval); // Stop the loading animation
-            submitButton.innerHTML = "Send Message"; // Reset button text
-            submitButton.disabled = false; // Re-enable the button
-
-            // Success message
-            Swal.fire({
-                icon: 'success',
-                title: 'Message Sent!',
-                text: 'Thank you for contacting us. We will get back to you shortly.'
-            }).then(() => {
-                // Clear the form fields only after showing the success message
-                document.getElementById("contactForm").reset();
-            });
-        }, function (error) {
-            clearInterval(loadingInterval); // Stop the loading animation
-            submitButton.innerHTML = "Send Message"; // Reset button text
-            submitButton.disabled = false; // Re-enable the button
-
-            // Error message
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong. Please try again later.'
-            });
-        });
-    });
 }
 
 
@@ -316,5 +257,88 @@ function founderToggleText() {
 
 // Wait for the DOM content to be loaded before running the function
 document.addEventListener('DOMContentLoaded', founderToggleText);
+
+
+
+
+/*___________________________
+***Our Program Post***
+____________________________*/
+
+function handleReadMoreButtons() {
+    const maxLength = 280; // Set the maximum character length before truncation
+    const readMoreButtons = document.querySelectorAll(".read-more-btn");
+
+    readMoreButtons.forEach((button) => {
+        // Get the associated content span for this button
+        const contentSpan = button.previousElementSibling;
+
+        if (contentSpan && contentSpan.textContent.length > maxLength) {
+            const fullText = contentSpan.textContent.trim(); // Ensure trimmed text
+            const truncatedText = fullText.slice(0, maxLength) + "...";
+
+            // Initially set the truncated text
+            contentSpan.textContent = truncatedText;
+
+            button.style.display = "inline"; // Show the button
+
+            // Toggle functionality
+            button.addEventListener("click", () => {
+                if (contentSpan.textContent === truncatedText) {
+                    contentSpan.textContent = fullText; // Show full text
+                    button.textContent = "Show Less"; // Update button text
+                } else {
+                    contentSpan.textContent = truncatedText; // Show truncated text
+                    button.textContent = "Read More..."; // Reset button text
+                }
+            });
+        } else {
+            button.style.display = "none"; // Hide the button if text is short
+        }
+    });
+}
+
+// Run the function once the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", handleReadMoreButtons);
+
+
+// Model For Program Img
+function initImageModalPop() {
+    const images = document.querySelectorAll(".clickable-image");
+    const modal = document.getElementById("imageModalPop");
+    const modalImage = document.getElementById("modalImage");
+    const closeModal = document.querySelector(".modal-close");
+
+    images.forEach((image) => {
+        image.addEventListener("click", () => {
+            modal.style.display = "flex";
+            modalImage.src = image.src;
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Close modal on click outside the image
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+// Wait for DOM to load before initializing modal functionality
+document.addEventListener("DOMContentLoaded", initImageModalPop);
+
+
+
+
+/*___________________________
+**Blog Section***
+____________________________*/
+
+
+
 
 

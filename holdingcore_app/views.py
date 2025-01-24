@@ -35,8 +35,8 @@ def causes(request):
 
 
 def programs(request):
-    programs_list = Program.objects.all()
-    paginator = Paginator(programs_list, 5)  # Display 4 programs per page
+    programs_list = Program.objects.all().order_by('-id')  # Newest posts first
+    paginator = Paginator(programs_list, 9)  # Display 5 programs per page
 
     page_number = request.GET.get('page')  # Get the current page number from query parameters
     page_obj = paginator.get_page(page_number)
@@ -54,7 +54,7 @@ def volunteer(request):
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def blog(request):
-    blogs_list = Blog.objects.all()  # Fetch all blog posts
+    blogs_list = Blog.objects.all().order_by('-id')  # Newest posts first
     paginator = Paginator(blogs_list, 9)  # Display 9 blogs per page
 
     page_number = request.GET.get('page')  # Get the page number from query params

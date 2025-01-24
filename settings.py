@@ -90,19 +90,19 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     
-    #   'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': os.getenv('DB_NAME'),
-    #     'USER': os.getenv('DB_USER'),
-    #     'PASSWORD': os.getenv('DB_PASSWORD'),
-    #     'HOST': os.getenv('DB_HOST'),
-    #     'PORT': os.getenv('DB_PORT', '5432'),  # Default port for PostgreSQL is 5432
-    # }
+      'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '5432'),  # Default port for PostgreSQL is 5432
+    }
 }
 
-DATABASES = {
-    "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
-}
+# DATABASES = {
+#     "default": dj_database_url.parse(os.getenv("DATABASE_URL"))
+# }
 
 
 AUTH_USER_MODEL = 'holdingcore_app.User'
@@ -183,11 +183,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-STATIC_ROOT = BASE_DIR / "staticfiles"  # For production (collectstatic)
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  #used it when you have static files outsit your static folder
-]
 
 
 

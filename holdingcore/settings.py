@@ -96,9 +96,11 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),  # This gets the database user from your environment
         'PASSWORD': os.getenv('DB_PASSWORD'),  # This gets the password from your environment
         'HOST': os.getenv('DB_HOST'),  # This gets the host from your environment (localhost in this case)
-        'PORT': os.getenv('DB_PORT', '5432'),  # This gets the port from your environment, defaulting to 5432
+        'PORT': os.getenv('DB_PORT',),  # This gets the port from your environment, defaulting to 5432
     }
 }
+
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 
 ### Uncomment For Render Hosting ###

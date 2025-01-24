@@ -4,91 +4,95 @@
 {% block body %}
 
 
- <!-- Page Header Start -->
- <div class="page-header">
- <div class="container">
-     <div class="row">
-         <div class="col-12">
-             <h2>Donate Now</h2>
-         </div>
-         <div class="col-12">
-             <p>Donate Today and Transform a Life</p>
-             <!-- <a href="">Donate</a> -->
-         </div>
-     </div>
- </div>
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Donate Now</h2>
+            </div>
+            <div class="col-12">
+                <p>Donate Today and Transform a Life</p>
+                <!-- <a href="">Donate</a> -->
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Page Header End -->
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("{% static 'holdingcore_app/img/don1.png' %}"); background-repeat: no-repeat; background-position: center; background-size: cover;
+        background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),
+        url("{% static 'holdingcore_app/img/don1.png' %}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 </style>
 
 
 <!-- Donate Start -->
 <div class="container">
- <div class="donate" data-parallax="scroll" data-image-src="{% static 'holdingcore_app/img/don2.png' %}">
-     <div class="row align-items-center">
-         <!-- Content Area -->
-         <div class="col-lg-7 mb-4 mb-lg-0">
-             <div class="donate-content text-white">
-                 <h1 class="display-5 fw-bold">Be the Reason Someone’s Life is Transformed</h1>
-                 <p class="lead">
-                     Every donation to Holdingcore Empowerment Foundation is a lifeline of hope, opportunity, and
-                     transformation. Your support helps us provide:
-                 </p>
-                 <ul class="list-unstyled">
-                     <li class="mb-2"><i class="fas fa-briefcase me-2 text-warning"></i> Business resources to
-                         struggling entrepreneurs.</li>
-                     <li class="mb-2"><i class="fas fa-utensils me-2 text-warning"></i> Food and essentials to
-                         the hungry and elderly.</li>
-                     <li class="mb-2"><i class="fas fa-graduation-cap me-2 text-warning"></i> Scholarships and
-                         school supplies to children.</li>
-                     <li class="mb-2"><i class="fas fa-tools me-2 text-warning"></i> Tools for individuals
-                         striving to build sustainable futures.</li>
-                 </ul>
-                 <p>
-                     Every contribution, no matter the size, has a profound impact. Your generosity creates
-                     ripples of change, empowering lives and uplifting communities.
-                 </p>
-             </div>
-         </div>
-         <div class="col-lg-5">
-             <div class="donate-form">
-                 <h3 class="text-center mb-4">Make a Donation</h3>
-                 <form id="donationForm">
-                     <div class="control-group">
-                         <input type="text" id="name" name="name" class="form-control" placeholder="Name"
-                             required="required" />
-                     </div>
-                     <div class="control-group">
-                         <input type="email" id="email" name="email" class="form-control" placeholder="Email"
-                             required="required" />
-                     </div>
-                     <div class="control-group">
-                         <input type="number" id="amount" name="amount" class="form-control"
-                             placeholder="Amount to Donate" required="required" />
-                     </div>
-                     <div class="control-group">
-                         <label for="currency">Choose Currency:</label>
-                         <select id="currency" name="currency" class="form-control" required="required">
-                             <option value="NGN">Naira (₦)</option>
-                             <option value="USD">Dollar ($)</option>
-                             <option value="GBP">Pound (£)</option>
-                             <option value="EUR">Euro (€)</option>
-                         </select>
-                     </div>
-                     <div>
-                         <button id="donateButton" class="btn btn-custom" type="submit">Donate Now</button>
-                     </div>
-                 </form>
+    <div class="donate" data-parallax="scroll" data-image-src="{% static 'holdingcore_app/img/don2.png' %}">
+        <div class="row align-items-center">
+            <!-- Content Area -->
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <div class="donate-content text-white">
+                    <h1 class="display-5 fw-bold">Be the Reason Someone’s Life is Transformed</h1>
+                    <p class="lead">
+                        Every donation to Holdingcore Empowerment Foundation is a lifeline of hope, opportunity, and
+                        transformation. Your support helps us provide:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-briefcase me-2 text-warning"></i> Business resources to
+                            struggling entrepreneurs.</li>
+                        <li class="mb-2"><i class="fas fa-utensils me-2 text-warning"></i> Food and essentials to
+                            the hungry and elderly.</li>
+                        <li class="mb-2"><i class="fas fa-graduation-cap me-2 text-warning"></i> Scholarships and
+                            school supplies to children.</li>
+                        <li class="mb-2"><i class="fas fa-tools me-2 text-warning"></i> Tools for individuals
+                            striving to build sustainable futures.</li>
+                    </ul>
+                    <p>
+                        Every contribution, no matter the size, has a profound impact. Your generosity creates
+                        ripples of change, empowering lives and uplifting communities.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="donate-form">
+                    <h3 class="text-center mb-4">Make a Donation</h3>
+                    <form id="donationForm">
+                        <div class="control-group">
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name"
+                                required="required" />
+                        </div>
+                        <div class="control-group">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email"
+                                required="required" />
+                        </div>
+                        <div class="control-group">
+                            <input type="number" id="amount" name="amount" class="form-control"
+                                placeholder="Amount to Donate" required="required" />
+                        </div>
+                        <div class="control-group">
+                            <label for="currency">Choose Currency:</label>
+                            <select id="currency" name="currency" class="form-control" required="required">
+                                <option value="NGN">Naira (₦)</option>
+                                <option value="USD">Dollar ($)</option>
+                                <option value="GBP">Pound (£)</option>
+                                <option value="EUR">Euro (€)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button id="donateButton" class="btn btn-custom" type="submit">Donate Now</button>
+                        </div>
+                    </form>
 
-             </div>
-         </div>
+                </div>
+            </div>
 
-     </div>
- </div>
+        </div>
+    </div>
 </div>
 <!-- Donate End -->
 
